@@ -2,13 +2,16 @@
 
 const demo = document.getElementById("demo");
 document.getElementById("li_bai1").onclick = () => {
-
+    // INPUT
     demo.innerHTML = "";
     const inputD = createElement("input");
     const inputM = createElement("input");
     const inputY = createElement("input");
     const buttonBai11 = createElement("button");
-    // const tieudeBai11 = createElement("");
+    // END INPUT
+
+    // HANDEL
+
     const heading = document.createElement("h4");
     heading.innerHTML = "BÀI 1: Viết chương trình nhập vào ngày, tháng, năm. Tìm ngày tháng năm của ngày trước và ngày kế tiếp."
     demo.appendChild(heading);
@@ -18,10 +21,6 @@ document.getElementById("li_bai1").onclick = () => {
     inputD.setAttribute("placeholder", "Nhập ngày");
     inputM.setAttribute("placeholder", "Nhập tháng");
     inputY.setAttribute("placeholder", "Nhập năm");
-
-
-
-
     buttonBai11.innerHTML = "Kết quả";
     demo.appendChild(buttonBai11);
 
@@ -34,9 +33,11 @@ document.getElementById("li_bai1").onclick = () => {
         const year = day * 365;
         const db = new Date(d - day); //day before
         const da = new Date(day + d); //day after
+        // OUTPUT
+
         buttonBai11.innerHTML = "Ngày hôm trước đó: ngày " + db.getDate() + " Tháng " + (db.getMonth() + 1) + " Năm " + db.getFullYear() + "<br>" + "Ngày hôm sau: ngày " + da.getDate() + " Tháng " + (da.getMonth() + 1) + " Năm " + da.getFullYear();
         console.log(inputM.value * 1 + " " + inputD.value * 1 + "," + inputY.value * 1);
-
+        // END OUTPUT
     }
 
 
@@ -47,16 +48,20 @@ document.getElementById("li_bai1").onclick = () => {
         })
         demo.appendChild(element);
     }
-
+    // END HANDEL
 }
 // BÀI 2
 document.getElementById("li_bai2").onclick = () => {
+    // INPUT
+
     demo.innerHTML = "";
     const inputD = createElement("input");
     const inputM = createElement("input");
     const inputY = createElement("input");
     const buttonBai11 = createElement("button");
-    // const tieudeBai11 = createElement("");
+    // END INPUT
+    // HANDEL
+
     const heading = document.createElement("h4");
     heading.innerHTML = "BÀI 2: Viết chương trình nhập vào ngày, tháng, năm. Cho biết tháng đó có bao nhiêu ngày."
     demo.appendChild(heading);
@@ -83,8 +88,10 @@ document.getElementById("li_bai2").onclick = () => {
         const getDays = (year, month) => {
             return new Date(year, month, 0).getDate();
         };
-        buttonBai11.innerHTML = "Tháng vừa nhập liệu có: " + getDays(inputY.value * 1, inputM.value * 1) + " ngày.";
+        // OUTPUT
 
+        buttonBai11.innerHTML = "Tháng vừa nhập liệu có: " + getDays(inputY.value * 1, inputM.value * 1) + " ngày.";
+        // END OUTPUT
     }
 
 
@@ -95,16 +102,19 @@ document.getElementById("li_bai2").onclick = () => {
         })
         demo.appendChild(element);
     }
-
+    // END HANDEL
 }
 document.getElementById("li_bai3").onclick = () => {
+    // INPUT
 
     demo.innerHTML = "";
     const inputBai11 = createElement("input");
 
     const buttonBai11 = createElement("button");
-    // const tieudeBai11 = createElement("");
     const heading = document.createElement("h4");
+    // END INPUT
+    // HANDEL
+
     heading.innerHTML = "BÀI 3: Nhập số nguyên có 3 chữ số, in ra cách đọc nó."
     demo.appendChild(heading);
     setAttributeForElement(inputBai11);
@@ -116,7 +126,11 @@ document.getElementById("li_bai3").onclick = () => {
     demo.appendChild(buttonBai11);
 
     buttonBai11.onclick = () => {
+        // INPUT
         var text = "";
+        // END INPUT
+        // HANDEL
+        
         var v = inputBai11.value * 1;//v is a value
         if (v > 99 && v < 1000) {
 
@@ -130,26 +144,40 @@ document.getElementById("li_bai3").onclick = () => {
             var hangDonVi = (v % 100) % 10;
 
             if (hangDonVi == 0 && hangChuc == 0) {
+                // OUTPUT
                 text += arrayTram[hangTram - 1] + " trăm ";
+                // END OUTPUT
             } else if (hangDonVi == 0 && hangChuc == 1) {
+                // OUTPUT
                 text += arrayTram[hangTram - 1] + " trăm mười ";
+                // END OUTPUT
             }
 
             else if (hangDonVi == 0 && hangChuc != 0) {
+                // OUTPUT
                 text += arrayTram[hangTram - 1] + " trăm " + arrayChuc[hangChuc - 1] + " mươi";
+                // END OUTPUT
             } else if (hangDonVi != 0 && hangChuc == 1) {
+                // OUTPUT
                 text += arrayTram[hangTram - 1] + " trăm " + "mười " + arrayChuc[hangDonVi - 1];
+                // END OUTPUT
             }
 
             else if (hangDonVi != 0 && hangChuc != 0) {
+                // OUTPUT
                 text += arrayTram[hangTram - 1] + " trăm " + arrayChuc[hangChuc - 1] + " mươi " + arrayDonVi[hangDonVi - 1];
+                // END OUTPUT
             }
             else if (hangChuc == 0 && hangDonVi != 0) {
+                // OUTPUT
                 text += arrayTram[hangTram - 1] + " trăm lẻ " + arrayChuc[hangDonVi - 1];
+                // END OUTPUT
 
             } else if (hangChuc == 1) {
-                text += arrayTram[hangTram - 1] + " mười " + arrayChuc[hangDonVi - 1];
+                // OUTPUT
 
+                text += arrayTram[hangTram - 1] + " mười " + arrayChuc[hangDonVi - 1];
+                // END OUTPUT
             }
             console.log(text)
 
@@ -158,8 +186,11 @@ document.getElementById("li_bai3").onclick = () => {
 
 
         } else {
+            // OUTPUT
             alert("Nhập vào số có 3 chữ số");
+            // END OUTPUT
         }
+        // END HANDEL
     }
 
 
@@ -171,9 +202,11 @@ document.getElementById("li_bai3").onclick = () => {
         demo.appendChild(element);
     }
 
-
+    // END HANDEL
 }
 document.getElementById("li_bai4").onclick = () => {
+    // INPUT
+   
     var school_x = 0;
     var school_y = 0;
     var st1_name = "";
@@ -190,8 +223,9 @@ document.getElementById("li_bai4").onclick = () => {
     var d3 = Math.sqrt(Math.pow((school_x - st3_x), 2) + Math.pow((school_y - st3_y), 2))
 
     demo.innerHTML = "";
-
-
+ // END INPUT
+    // HANDEL
+   
     // STUDENT 1
     const H6_ELEMENT_1 = document.createElement("h6");
     H6_ELEMENT_1.innerHTML = "Sinh viên 1:"
@@ -272,42 +306,50 @@ document.getElementById("li_bai4").onclick = () => {
 
     btn_section4.onclick = function () {
 
-        school_x = school_input_x.value*1;
-        school_y = school_input_y.value*1;
+        school_x = school_input_x.value * 1;
+        school_y = school_input_y.value * 1;
         st1_name = st1_input_name.value;
-        st1_x = st1_input_x.value*1;
-        st1_y = st1_input_y.value*1;
+        st1_x = st1_input_x.value * 1;
+        st1_y = st1_input_y.value * 1;
         st2_name = st2_input_name.value;
-        st2_x = st2_input_x.value*1;
-        st2_y = st2_input_y.value*1;
+        st2_x = st2_input_x.value * 1;
+        st2_y = st2_input_y.value * 1;
         st3_name = st3_input_name.value;
-        st3_x = st3_input_x.value*1;
-        st3_y = st3_input_y.value*1;
-        
-        
-        
+        st3_x = st3_input_x.value * 1;
+        st3_y = st3_input_y.value * 1;
+
+
+
         d1 = Math.sqrt(Math.pow((school_x - st1_x), 2) + Math.pow((school_y - st1_y), 2));
         d2 = Math.sqrt(Math.pow((school_x - st2_x), 2) + Math.pow((school_y - st2_y), 2));
         d3 = Math.sqrt(Math.pow((school_x - st3_x), 2) + Math.pow((school_y - st3_y), 2));
 
-        if (school_x != 0 && school_y != 0 && st1_x != 0 && st1_y != 0 && st2_x != 0 && st2_y != 0 && st3_x != 0 && st3_y != 0){
-            if(d1>d2 && d1>d3){
+        if (school_x != 0 && school_y != 0 && st1_x != 0 && st1_y != 0 && st2_x != 0 && st2_y != 0 && st3_x != 0 && st3_y != 0) {
+            if (d1 > d2 && d1 > d3) {
+                // OUTPUT
                 btn_section4.innerHTML = "SV xa nhất:" + st1_name;
-            } else if (d2 > d1 && d2 > d3){
+                // END OUTPUT
+            } else if (d2 > d1 && d2 > d3) {
+                // OUTPUT
                 btn_section4.innerHTML = "SV xa nhất:" + st2_name;
+                // END OUTPUT
             } else {
+                // OUTPUT
                 btn_section4.innerHTML = "SV xa nhất:" + st3_name;
+                // END OUTPUT
             }
-            
-        }else {
+
+        } else {
             alert("Nhập đủ thông tin !")
         }
     }
 
 
 
-
+ // END HANDEL
 }
+// HANDEL
+
 // set option 
 function setOption(element, value, content) {
     element.setAttribute("value", value);
@@ -317,3 +359,4 @@ function setOption(element, value, content) {
 function createElement(element) {
     return document.createElement(element);
 }
+// END HANDEL
